@@ -1,0 +1,20 @@
+x86-64 Machine Code (Hexadecimal bytes):
+========================================
+
+This is the actual machine code that a processor executes:
+
+Data Section (Hello World string):
+48 65 6C 6C 6F 20 57 6F 72 6C 64 0A
+
+Code Section (Instructions):
+B8 01 00 00 00    ; mov rax, 1 (sys_write)
+BF 01 00 00 00    ; mov rdi, 1 (stdout)
+48 BE [address]   ; mov rsi, address of msg
+BA 0C 00 00 00    ; mov rdx, 12 (length)
+0F 05             ; syscall
+
+B8 3C 00 00 00    ; mov rax, 60 (sys_exit)
+48 31 FF          ; xor rdi, rdi
+0F 05             ; syscall
+
+These hexadecimal values are the actual binary instructions (opcodes) that the CPU executes.
